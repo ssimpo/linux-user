@@ -1,60 +1,4 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "https://github.com/ssimpo/linux-user",
-        "scope": null,
-        "escapedName": null,
-        "name": null,
-        "rawSpec": "https://github.com/ssimpo/linux-user",
-        "spec": "git+https://github.com/ssimpo/linux-user.git",
-        "type": "hosted",
-        "hosted": {
-          "type": "github",
-          "ssh": "git@github.com:ssimpo/linux-user.git",
-          "sshUrl": "git+ssh://git@github.com/ssimpo/linux-user.git",
-          "httpsUrl": "git+https://github.com/ssimpo/linux-user.git",
-          "gitUrl": "git://github.com/ssimpo/linux-user.git",
-          "shortcut": "github:ssimpo/linux-user",
-          "directUrl": "https://raw.githubusercontent.com/ssimpo/linux-user/master/package.json"
-        }
-      },
-      "/home/simpo/Projects/bolt2"
-    ]
-  ],
-  "_from": "git+https://github.com/ssimpo/linux-user.git",
-  "_id": "linux-user@0.1.0",
-  "_inCache": true,
-  "_installable": true,
-  "_location": "/linux-user",
-  "_phantomChildren": {},
-  "_requested": {
-    "raw": "https://github.com/ssimpo/linux-user",
-    "scope": null,
-    "escapedName": null,
-    "name": null,
-    "rawSpec": "https://github.com/ssimpo/linux-user",
-    "spec": "git+https://github.com/ssimpo/linux-user.git",
-    "type": "hosted",
-    "hosted": {
-      "type": "github",
-      "ssh": "git@github.com:ssimpo/linux-user.git",
-      "sshUrl": "git+ssh://git@github.com/ssimpo/linux-user.git",
-      "httpsUrl": "git+https://github.com/ssimpo/linux-user.git",
-      "gitUrl": "git://github.com/ssimpo/linux-user.git",
-      "shortcut": "github:ssimpo/linux-user",
-      "directUrl": "https://raw.githubusercontent.com/ssimpo/linux-user/master/package.json"
-    }
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "git+https://github.com/ssimpo/linux-user.git#8c5e42766a1ad1316c4ea7866a09accddaf0411a",
-  "_shasum": "3fa353c3e1c5b524964c2cc1bcd75e4dc0f38eea",
-  "_shrinkwrap": null,
-  "_spec": "https://github.com/ssimpo/linux-user",
-  "_where": "/home/simpo/Projects/bolt2",
   "author": {
     "name": "GKuChan",
     "email": "gkuchan_root@outlook.com"
@@ -91,7 +35,7 @@
     "gpasswd"
   ],
   "license": "MIT",
-  "name": "linux-user",
+  "name": "@simpo/linux-user",
   "optionalDependencies": {},
   "readme": "linux-user\n==========\n\n[![NPM](https://nodei.co/npm/linux-user.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/linux-user/)\n\nNode module for Linux user and group control.\n\nUse Node to manage Linux user easily. All APIs do what you think.\n\n**The module must be running on Linux and as root user !**\n\nInstallation\n=============\n\n`$ npm install linux-user --save`\n\nUsage\n=============\n\n### Examples\n\n* add Linux user\n\n```js\nvar linuxUser = require('linux-user');\n\nlinuxUser.addUser('gkuchan', function (err, user) {\n  if(err) {\n    return console.error(err);\n  }\n  console.log(user);\n  // ------------------------------------------\n  // { username: 'gkuchan',\n  //   password: 'x',\n  //   uid: 1001,\n  //   gid: 1001,\n  //   fullname: '',\n  //   homedir: '/home/gkuchan',\n  //   shell: '/usr/sbin/nologin' }\n  // ------------------------------------------\n});\n```\n* get users\n\n```js\nvar linuxUser = require('linux-user');\n\nlinuxUser.getUsers(function (err, users) {\n  if(err) {\n    return console.error(err);\n  }\n  console.log(users);\n  // ------------------------------------------\n  // [ { username: 'root',\n  //   password: 'x',\n  //   uid: 0,\n  //   gid: 0,\n  //   fullname: 'root',\n  //   homedir: '/root',\n  //   shell: '/bin/bash' },\n  // { username: 'daemon',\n  //   password: 'x',\n  //   uid: 1,\n  //   gid: 1,\n  //   fullname: 'daemon',\n  //   homedir: '/usr/sbin',\n  //   shell: '/usr/sbin/nologin' },\n  // { username: 'bin',\n  //   password: 'x',\n  //   uid: 2,\n  //   gid: 2,\n  //   fullname: 'bin',\n  //   homedir: '/bin',\n  //   shell: '/usr/sbin/nologin' } ]\n  //   ------------------------------------------\n  });\n```\n\n### Core APIs\n\n* linuxUser.addUser(username, callback)\n\t* username String\n\t* callback function(err, userInfo)\n* linuxUser.removeUser(username, callback)\n\t* username String\n\t* callback function(err)\n* linuxUser.getUsers(callback)\n\t* callback function(err, usersInfo)\n* linuxUser.getUserInfo(username, callback)\n\t* username String\n\t* callback function(err, userInfo)\n* linuxUser.setPassword(username, password, callback)\n\t* username String\n\t* password String\n\t* callback function(err)\n* linuxUser.addGroup(groupname, callback)\n\t* groupname String\n\t* callback function(err, groupInfo)\n* linuxUser.removeGroup(groupname, callback)\n\t* groupname String\n\t* callback function(err)\n* linuxUser.getGroups(callback)\n\t* callback function(err, groupsInfo)\n* linuxUser.getGroupInfo(groupname, callback)\n\t* groupname String\n\t* callback function(err, groupInfo)\n* linuxUser.addUserToGroup(username, groupname, callback)\n\t* username String\n\t* groupname String\n\t* callback function(err)\n\n### Other APIs\n\n* linuxUser.validateUsername(username)\n\t* return boolen\n\t\n\tcheck a string is a valid linux username or not\n\t\n### License\n\nMIT",
   "readmeFilename": "README.md",
